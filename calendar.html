@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUURYA PANCHANGA</title>
+    <style>
+        .MAIN-THEME {
+            border-radius: 25px;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            background-color: yellow;
+
+            text-align: center;
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body style="background-color: rgb(217, 220, 217);">
+
+    <header class="MAIN-THEME" style="color: ;">
+        <p><b > SUURYA PANCHANGA</b></p>
+    </header>
+    
+    <div id="div-month" style="padding-top: 5%;">
+    <span  style="color: black; font-size: larger;padding-top: 5%; padding-left: 5%; "> Month : 
+    <span id="month" style="color: rgb(255, 0, 0);font-weight: 900;"></span>
+    </span>
+    </div>
+     <div id="div-day"> 
+     <span style="color: black; font-size: larger;padding-top: 5%; padding-left: 5%; ">Current Day : 
+        <span id="day"  style="color: rgb(247, 34, 11); font-size: larger; "></span>
+     </span>   
+     </div>
+      <span id="ayana" style="font-weight: bolder; font-size: 50px; color: gold;"></span>
+     <div id="div-date"> 
+     <span style="color: black; font-size: larger;padding-top: 0%; padding-left: 5%; "> Date : 
+        <b id="date"  style="color: rgb(247, 34, 11); font-size: large; "></b>
+     </span>   
+     </div>
+     <div><span style="color: black; font-size: larger;padding-top: 5%; padding-left: 5%; ">Week Day :</span><span id="weekday" style="color: rgb(247, 34, 11); font-size: larger;"></span></div>
+    <script>
+        const currentDate = new Date(); 
+        const date=currentDate.getDate();
+        document.getElementById('date').innerHTML=currentDate.toDateString().substring(4,16);
+        const month=currentDate.getMonth();
+        var day=currentDate.getUTCDate();
+        var weekday=currentDate.getUTCDay();
+        months=['Makara','kumbha','Meena','mesha', 'vrishabha', 'mithuna','karkataka','simha','kanya','tula','vrishchika','Dhanasu'];
+        vaara=['Aadi','Soma','Mangala','Budha','Bruhaspati','Sukra','Shani'];day_hind=date-16;
+        //jan - 0 = makara
+        //feb-1=kumbha
+        document.getElementById('day').innerHTML= +day_hind;
+       // document.write(months[month]);
+        // if(month>=6 && month<12 ){
+        //     if( month==6 && date<17 ){
+        //          document.getElementById('ayana').innerHTML='current ayana: UTTARA';
+                
+        //     }
+        //     else
+        //     document.getElementById('ayana').innerHTML='current ayana: daksina';
+        // }
+        // else if(month==0 && date<14){
+        //      document.getElementById('ayana').innerHTML='current ayana: daksina';
+        // }
+        // else  document.getElementById('ayana').innerHTML='current ayana:UTTARA';
+        if(day>16){
+       document.getElementById('month').innerHTML=months[month];}
+       else if(month==0){
+        document.getElementById('month').innerHTML=months[11];
+       }else{
+       document.getElementById('month').innerHTML=months[month-1];}
+       document.getElementById('weekday').innerHTML=vaara[weekday];
+        
+        //const mont=month+1;
+        //document.getElementById('month').innerHTML='current month is '+mont;
+        //currentDate.toDateString;
+        // document.getElementById(dateDisplay).innerHTML=`currentDate.toDateString`;
+        //S const dateDisplay
+
+        // Format the date for the H1 element
+        //const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+       // const formattedDateForDisplay = currentDate.toLocaleDateString('en-US', options);
+
+        //  Format the date for the input element (YYYY-MM-DD)
+        // const year = currentDate.getFullYear();
+        // const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        // const day = String(currentDate.getDate()).padStart(2, '0');
+        // const formattedDateForInput = `${year}-${month}-${day}`;
+
+        // Update the H1 element
+        // const dateDisplayElement = document.getElementById('dateDisplay');
+        // dateDisplayElement.innerHTML = `Today is: ${currentDate.getDay()}`;
+        
+        // Update the input element
+        //const dateInputElement = document.getElementById('dateInput');
+        //dateInputElement.value = formattedDateForInput;
+
+        
+    </script>
+</body>
+
+</html>
