@@ -15,7 +15,29 @@
             text-align: center;
             color: red;
         }
-    </style>
+     
+        .go {
+        color: green;
+        }
+        .stop {
+        color: red;
+        }
+       #myProgress {
+            width: 30%;
+            background-color:skyblue; /* Light grey background for the container */
+            border-radius: 5px;
+            overflow: hidden; /* Ensures the inner bar stays within rounded corners */
+            }
+       #myBar {
+            width: 0%; /* Initial width */
+            height: 30px;
+            background-color: #4CAF50; /* Default green color */
+            text-align: center;
+            line-height: 30px;
+            color: black;
+            transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out; /* Smooth transitions */
+            }
+       </style>
 
 </head>
 
@@ -42,8 +64,44 @@
      </span>   
      </div>
      <div><span style="color: black; font-size: larger;padding-top: 5%; padding-left: 5%; ">Week Day :</span><span id="weekday" style="color: rgb(247, 34, 11); font-size: larger;"></span></div>
-    <script>
-        const currentDate = new Date(); 
+
+    <div id="my_box">
+    <h3>Hello World</h3>
+    </div>
+    <div>
+        <label for="Dropdownone">Country</label>
+        <select id="myDropdown" name="myDropdown">
+        <option value="option1">India</option>
+        <option value="option2">Malaysia</option>
+        <option value="option3">Australia</option>
+        </select>
+        </div><br>
+        <div id="myProgress">
+            <div id="myBar"></div>
+        </div>
+
+
+   <script>
+    let intervalId;
+
+function changeColor() {
+  // check if an interval has already been set up
+  intervalId ??= setInterval(flashText, 500);
+}
+
+function flashText() {
+  const oElem = document.getElementById("my_box");
+  oElem.className = oElem.className === "go" ? "stop" : "go";
+}
+
+function stopTextColor() {
+  clearInterval(intervalId);
+  // release our intervalId from the variable
+  intervalId = null;
+}
+
+changeColor();
+    const currentDate = new Date(); 
         const date=currentDate.getDate();
         document.getElementById('date').innerHTML=currentDate.toDateString().substring(4,16);
         const month=currentDate.getMonth();
@@ -75,6 +133,22 @@
        document.getElementById('month').innerHTML=months[month-1];}
        document.getElementById('weekday').innerHTML=vaara[weekday];
         
+        function updateProgressBar(value) {
+  const progressBar = document.getElementById("myBar");
+  progressBar.style.width = value + "%"; // Set the width based on the value
+  progressBar.style.color=black;
+ progressBar.textContent = value + "%";
+
+  if (value < 30) {
+    progressBar.style.backgroundColor = red; // Red for low progress
+  } else if (value < 70) {
+    progressBar.style.backgroundColor = yellow; // Yellow for medium progress
+  } else {
+    progressBar.style.backgroundColor = green; // Green for high progress
+  }
+ 
+}
+updateProgressBar(10);
         //const mont=month+1;
         //document.getElementById('month').innerHTML='current month is '+mont;
         //currentDate.toDateString;
