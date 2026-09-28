@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUURYA PANCHANGA</title>
+    <title>SUURYA PANCHANGAM</title>
     <style>
         .MAIN-THEME {
             border-radius: 25px;
@@ -44,7 +44,7 @@
 <body style="background-color: rgb(217, 220, 217);">
 
     <header class="MAIN-THEME" style="color: ;">
-        <p><b > SUURYA PANCHANGA</b></p>
+        <p><b > SUURYA PANCHANGAM</b></p>
     </header>
     
     <div id="div-month" style="padding-top: 5%;">
@@ -63,10 +63,10 @@
         <b id="date"  style="color: rgb(247, 34, 11); font-size: large; "></b>
      </span>   
      </div>
-     <div><span style="color: black; font-size: larger;padding-top: 5%; padding-left: 5%; ">Week Day :</span><span id="weekday" style="color: rgb(247, 34, 11); font-size: larger;"></span></div>
+     <div><span style="color: black; font-size: larger;padding-top: 5%; padding-left: 5%; ">VAARAM </span><span id="weekday" style="color: rgb(247, 34, 11); font-size: larger;"></span></div>
 
     <div id="my_box">
-    <h3>Hello World</h3>
+    <h3>TIME IS PRECIOUS, DONT WASTE IT</h3>
     </div>
     <div>
         <label for="Dropdownone">Country</label>
@@ -107,8 +107,10 @@ changeColor();
         const month=currentDate.getMonth();
         var day=currentDate.getUTCDate();
         var weekday=currentDate.getUTCDay();
-        months=['Makara','kumbha','Meena','mesha', 'vrishabha', 'mithuna','karkataka','simha','kanya','tula','vrishchika','Dhanasu'];
-        vaara=['Bhanu','Soma','Mangala','Budha','Bruhaspati','Bhargava','Shanaishchara'];day_hind=date-16;
+        months=['Makara','kumbha','Meena','mesha', 'vrishabha', 'mithuna','karkataka','simha','Kanya','tula','vrishchika','Dhanasu'];
+        vaara=['Bhanu','Soma','Mangala','Budha','Bruhaspati','Bhargava','Shanaishchara'];
+       if(month=="Kanya"){day_hind=date-17;}
+       day_hind=date-16;
         //jan - 0 = makara
         //feb-1=kumbha
         document.getElementById('day').innerHTML= +day_hind;
